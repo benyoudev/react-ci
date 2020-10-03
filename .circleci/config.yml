@@ -1,19 +1,9 @@
 orbs:
-  react: 'thefrontside/react@dev:alpha'
+  node: circleci/node@4.0.0
+
 version: 2.1
+
 workflows:
-  push:
+  app-tests:
     jobs:
-      - react/install
-      - react/eslint:
-          requires:
-            - react/install
-      - react/stylelint:
-          requires:
-            - react/install
-      - react/test:
-          requires:
-            - react/install
-      - react/coverage:
-          requires:
-            - react/install
+      - node/test
